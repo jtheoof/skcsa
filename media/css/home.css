@@ -54,4 +54,5 @@ section.news ul li.widget-item img {float: left;}
 section.events #events {margin: 0;}
 
 /* Address */
-section.address img {display: block; margin: 0 auto;}
+section.address p {margin: 10px auto; text-align: center;}
+section.address img  {display: block; margin: 0 auto;}
