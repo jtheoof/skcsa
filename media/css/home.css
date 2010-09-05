@@ -1,0 +1,57 @@
+@import url("main.css");
+
+section.home {clear: both; float: left; width: 65%;}
+section.home p {text-align: justify;}
+
+aside.home {float: left; width: 30%;}
+aside.home section {
+    border: 1px solid #CCC;
+    margin-bottom: 10px;
+    
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+aside.home section h3 {
+    background-color: #EFEFEF;
+    border-bottom: 1px solid #CCC;
+    padding: 7px;
+    
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+}
+
+/* News */
+section.news ul {margin-left: 10px;}
+section.news ul li.widget-item {list-style: none;}
+section.news ul li.widget-item p {
+    background: #EFEFEF;
+    background-image: -moz-linear-gradient(top,#FFF,#EFEFEF);
+    background-image: -webkit-gradient(linear, 0 0, 0% 100%, from(#FFF), to(#EFEFEF));
+    border: 1px solid #EFEFEF;
+    /*border-bottom-color: #fff;
+    border-right-color: #fff;*/
+    color: #555;
+    
+    line-height: 23px;
+    /*margin: 15px 2px 0 auto !important;*/
+    margin: 15px 0 0 44px;
+    padding: 10px;
+    text-shadow: 0 1px 0 #fff;
+    width: 210px;
+    
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 2px 2px 0 #ddd;
+    -moz-box-shadow: 2px 2px 0 #ddd;
+    -webkit-box-shadow: 2px 2px 0 #ddd;
+}
+section.news ul li.widget-item img {float: left;}
+
+/* Events */
+section.events #events {margin: 0;}
+
+/* Address */
+section.address img {display: block; margin: 0 auto;}
