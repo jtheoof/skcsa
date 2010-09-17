@@ -9,56 +9,69 @@
 <script type="text/javascript">
     $(function() {
         $("#events").datepicker();
+        
+        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?id=54016158@N03&format=json&jsoncallback=?", function(data){
+            $.each(data.items, function(i,item){
+                $("<img/>").attr("src", item.media.m).appendTo("#images")
+                .wrap("<a href='" + item.link + "'></a>");
+            });
+        });
     });
 </script>
 {% endblock %}
 
 {% block content %}
-    <section id="content" class="body">
-        <section class="home important">
-            <h2>Bienvenue au Karate club de Sophia</h2>
-            <p>
-                La vocation de ce site est de vous informer sur <a href="">notre club</a> situé à Sophia Antipolis entre Antibes et Valbonne  dans le 06,  mais également de vous faire découvrir (ou redécouvrir)
-                cet art martial extraordinaire (oui nous sommes passionnés :-) qu'est le Karaté.
-            </p>
-            <p>
-                Comme vous le verrez  dans ces pages, le Karaté est un art aux multiples facettes
-                (sport, éducation, self défense), fort d'une tradition très riche et qui s'adresse
-                à tous et à toutes.
-            </p>
-            <p>
-                Notre club, via son professeur Michel Pierini, 6 ème dan,
-                dispense un dans les Alpes Maritimes <a href="">enseignement traditionnel</a>
-                du Karate qui vise à développer le potentiel de chacun.
-            </p>
-            <p>
-                Maître Funakoshi (un des pères fondateur du karaté) disait que celui qui maîtrise vraiment
-                le karaté est celui qui peut l'appliquer dans sa vie de tous les jours pour soi même et
-                pour les autres.
-            </p>
-            <ul> 
-                <li>
-                    <span class="comment">Les enfants</span> découvriront une discipline corporelle qui
-                    développe les qualités psycho motrices et acquièreront de façon certaine une confiance
-                    en soi.
-                </li>
-                <li>
-                    Les adolescents, par le challenge qu'impose une discipline exigante, verront leur volonté
-                    s'affirmer.
-                </li>
-                <li>
-                    Les jeunes filles et les femmes développeront une assurance et un esprit de combattante
-                    qui est toujours un atout.
-                </li>
-                <li>
-                    Les adultes en général pourront se passionner pour cet art qui conduit à une maîtrise
-                    et un dépassement de soi même.  
-                </li>
-            </ul>
-            <div>
-                A très bientôt en karategi, <br> Mario Gilardone, président du club. <br><br>
-            </div>
-        </section>
+    <div class="body">
+        <div class="content">
+            <section class="home important">
+                <h2>Bienvenue au Karate club de Sophia</h2>
+                <p>
+                    La vocation de ce site est de vous informer sur <a href="">notre club</a> situé à Sophia Antipolis entre Antibes et Valbonne  dans le 06,  mais également de vous faire découvrir (ou redécouvrir)
+                    cet art martial extraordinaire (oui nous sommes passionnés :-) qu'est le Karaté.
+                </p>
+                <p>
+                    Comme vous le verrez  dans ces pages, le Karaté est un art aux multiples facettes
+                    (sport, éducation, self défense), fort d'une tradition très riche et qui s'adresse
+                    à tous et à toutes.
+                </p>
+                <p>
+                    Notre club, via son professeur Michel Pierini, 6 ème dan,
+                    dispense un dans les Alpes Maritimes <a href="">enseignement traditionnel</a>
+                    du Karate qui vise à développer le potentiel de chacun.
+                </p>
+                <p>
+                    Maître Funakoshi (un des pères fondateur du karaté) disait que celui qui maîtrise vraiment
+                    le karaté est celui qui peut l'appliquer dans sa vie de tous les jours pour soi même et
+                    pour les autres.
+                </p>
+                <ul> 
+                    <li>
+                        <span class="comment">Les enfants</span> découvriront une discipline corporelle qui
+                        développe les qualités psycho motrices et acquièreront de façon certaine une confiance
+                        en soi.
+                    </li>
+                    <li>
+                        Les adolescents, par le challenge qu'impose une discipline exigante, verront leur volonté
+                        s'affirmer.
+                    </li>
+                    <li>
+                        Les jeunes filles et les femmes développeront une assurance et un esprit de combattante
+                        qui est toujours un atout.
+                    </li>
+                    <li>
+                        Les adultes en général pourront se passionner pour cet art qui conduit à une maîtrise
+                        et un dépassement de soi même.  
+                    </li>
+                </ul>
+                <div>
+                    A très bientôt en karategi, <br> Mario Gilardone, président du club. <br><br>
+                </div>
+            </section>
+            <section class="home important photos">
+                <div id="images">
+                </div>
+            </section>
+        </div>
         <aside class="home">
             <section class="news">
                 <h3>{% trans "News" %}</h3>
@@ -79,7 +92,6 @@
                     </li>
                 </ul>
             </section>
-            
             <section class="events">
                 <h3>{% trans "Evenements" %}</h3>
                 <div id="events">
@@ -92,5 +104,5 @@
                 <img src="http://maps.google.com/maps/api/staticmap?center=230%20route%20des%20dolines%20Sophia%20Antipolis,%20France&zoom=15&size=290x290&markers=color:red|230%20route%20des%20dolines%20Sophia%20Antipolis,%20France&sensor=false" alt="Address" />
             </section>
         </aside>
-    </section>
+    </div>
 {% endblock %}

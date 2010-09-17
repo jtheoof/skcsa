@@ -9,15 +9,19 @@ LOG_FORMATTER = logging.Formatter(
     u'%(asctime)s | %(levelname)-7s | %(name)s | %(message)s',
     datefmt=LOG_DATE_FORMAT)
 
+LOGGER = logging.getLogger('Logger')
+LOGGER.setLevel(logging.DEBUG)
+
 CONSOLE_HANDLER = logging.StreamHandler() # defaults to stderr
 CONSOLE_HANDLER.setFormatter(LOG_FORMATTER)
 CONSOLE_HANDLER.setLevel(logging.DEBUG)
+LOGGER.addHandler(CONSOLE_HANDLER)
 
 PROJECT_PATH = os.path.join(os.path.abspath(os.path.split(__file__)[0]), os.pardir)
 
 sys.path.append(PROJECT_PATH)
-sys.path.append(os.path.join(PROJECT_PATH, 'apps'))
-sys.path.append(os.path.join(PROJECT_PATH, 'libs'))
+#sys.path.append(os.path.join(PROJECT_PATH, 'apps'))
+#sys.path.append(os.path.join(PROJECT_PATH, 'libs'))
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -41,7 +45,7 @@ TIME_ZONE = 'Europe/Paris'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'fr-fr'
+LANGUAGE_CODE = 'en-US'
 
 SITE_ID = 1
 
@@ -102,5 +106,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     
+    'apps.events',
     'apps.portal',
 )

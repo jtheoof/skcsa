@@ -1,7 +1,11 @@
 @import url("main.css");
 
-section.home {clear: both; float: left; width: 65%;}
+div.content {clear: both; float: left; width: 65%;}
+
+section.home {margin-bottom: 10px;}
 section.home p {text-align: justify;}
+
+section.photos {height: 400px;}
 
 aside.home {float: left; width: 30%;}
 aside.home section {

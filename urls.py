@@ -3,8 +3,8 @@ from django.conf import settings
 from django.contrib import admin
 
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
     # Example:
@@ -20,7 +20,7 @@ urlpatterns = patterns('',
 
 URL_ROOT = 'portal'
 urlpatterns += patterns('apps.portal.views',
-    url(r'home/$', 'home', name='%s_home' % URL_ROOT),
+    url(r'^(?:home/)?$', 'home', name='%s_home' % URL_ROOT),
 )
 
 # Serve static files through Django only if we are in a debug environment
