@@ -88,3 +88,16 @@ section.address a:hover, section.address a:active {
 section.address img {display: block; margin: 0 auto;}
 section.address img:hover {border: 3px solid #C74350;}
 
+/* Useful links */
+section.useful-links .link {clear: both; margin: 0 5px;}
+section.useful-links .link img {float: left;}
+section.useful-links .link p {padding: 20px 0 0 70px;}
+
+/* Pricing */
+section.pricing table td.age {color: #C74350; padding: 0 1px;}
+section.pricing table td.age:hover {cursor: pointer;}
+section.pricing table td {text-align: center;}
+section.pricing table td span {display: none;}
+
+
+

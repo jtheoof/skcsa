@@ -21,6 +21,7 @@ urlpatterns = patterns('',
 URL_ROOT = 'portal'
 urlpatterns += patterns('apps.portal.views',
     url(r'^(?:home/)?$', 'home', name='%s_home' % URL_ROOT),
+    url(r'^club/?$', 'club', name='%s_club' % URL_ROOT),
 )
 
 # Serve static files through Django only if we are in a debug environment

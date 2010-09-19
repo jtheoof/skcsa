@@ -24,6 +24,12 @@ body {
 	text-align: left;
 }
 
+/* Clearfix */
+.clearfix:after {clear:both; content:"."; display:block; height:0; visibility:hidden;}
+.clearfix {/*display: inline-block;*/}
+html[xmlns] .clearfix {display: block;}
+* html .clearfix {height: 1%;}
+
 /* Headings */
 h2 {font-size: 1.571em}	/* 22px */
 h3 {font-size: 1.429em}	/* 20px */
@@ -173,7 +179,7 @@ section.important {
 	text-decoration: none;
 }
 #banner nav a:hover, #banner nav a:active,
-#banner nav .active a:link, #banner nav .active a:visited {
+#banner nav .selected a:link, #banner nav .selected a:visited {
     background: #CC0606;
     color: #fff;
     text-shadow: none !important;

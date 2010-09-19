@@ -1,0 +1,276 @@
+{% extends 'portal/base.html' %}
+{% load i18n %}
+{% load tags %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/media/css/home.css" type="text/css" />
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+    $(function() {
+        /*$('.age').qtip({
+            content: $(this).find('span').text(),
+            position: {
+              corner: {
+                 target: 'topRight',
+                 tooltip: 'bottomLeft'
+              }
+           },
+            style: 'cream' // Give it some style
+        });*/
+        
+        $('.age').each(function(item) {
+            $(this).qtip({
+                content: $(this).find('span').text(),
+                position: {
+                    corner: {
+                        target: 'topRight',
+                        tooltip: 'bottomLeft'
+                    }
+                },
+                show: {
+                    delay: 0
+                },
+                style: 'cream' // Give it some style
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+    <div class="body">
+        <div class="content">
+            <section class="home important">
+                <h2>{% trans "Organisation" %}</h2>
+                
+                <h3>{% trans "Professeurs" %}</h3>
+                
+                <div class="member">
+                    <img src="{{ MEDIA_URL }}/photos/members/michel-pierini.jpg" />
+                    <div class="info">
+                        <table>
+                            <tbody>
+                                <tr><td class="name">Michel Pierini</td></tr>
+                                <tr><td class="grade">6ème Dan</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <h3>{% trans "Bureau" %}</h3>
+                
+                <p>
+                    La vocation de ce site est de vous informer sur <a href="">notre club</a> situé à Sophia Antipolis entre Antibes et Valbonne  dans le 06,  mais également de vous faire découvrir (ou redécouvrir)
+                    cet art martial extraordinaire (oui nous sommes passionnés :-) qu'est le Karaté.
+                </p>
+                <p>
+                    Comme vous le verrez  dans ces pages, le Karaté est un art aux multiples facettes
+                    (sport, éducation, self défense), fort d'une tradition très riche et qui s'adresse
+                    à tous et à toutes.
+                </p>
+                <p>
+                    Notre club, via son professeur Michel Pierini, 6 ème dan,
+                    dispense un dans les Alpes Maritimes <a href="">enseignement traditionnel</a>
+                    du Karate qui vise à développer le potentiel de chacun.
+                </p>
+                <p>
+                    Maître Funakoshi (un des pères fondateur du karaté) disait que celui qui maîtrise vraiment
+                    le karaté est celui qui peut l'appliquer dans sa vie de tous les jours pour soi même et
+                    pour les autres.
+                </p>
+                <ul> 
+                    <li>
+                        <span class="comment">Les enfants</span> découvriront une discipline corporelle qui
+                        développe les qualités psycho motrices et acquièreront de façon certaine une confiance
+                        en soi.
+                    </li>
+                    <li>
+                        Les adolescents, par le challenge qu'impose une discipline exigante, verront leur volonté
+                        s'affirmer.
+                    </li>
+                    <li>
+                        Les jeunes filles et les femmes développeront une assurance et un esprit de combattante
+                        qui est toujours un atout.
+                    </li>
+                    <li>
+                        Les adultes en général pourront se passionner pour cet art qui conduit à une maîtrise
+                        et un dépassement de soi même.  
+                    </li>
+                </ul>
+                <div>
+                    A très bientôt en karategi, <br> Mario Gilardone, président du club. <br><br>
+                </div>
+            </section>
+            <section class="home important">
+                <h2>{% trans "Le coin des ceintures noires" %}</h2>
+                
+                <h3>{% trans "6ème Dan" %}</h3>
+                <h3>{% trans "5ème Dan" %}</h3>
+                <h3>{% trans "4ème Dan" %}</h3>
+                <h3>{% trans "3ème Dan" %}</h3>
+                <h3>{% trans "2ème Dan" %}</h3>
+                <h3>{% trans "1ère Dan" %}</h3>
+                
+                <p>
+                    La vocation de ce site est de vous informer sur <a href="">notre club</a> situé à Sophia Antipolis entre Antibes et Valbonne  dans le 06,  mais également de vous faire découvrir (ou redécouvrir)
+                    cet art martial extraordinaire (oui nous sommes passionnés :-) qu'est le Karaté.
+                </p>
+                <p>
+                    Comme vous le verrez  dans ces pages, le Karaté est un art aux multiples facettes
+                    (sport, éducation, self défense), fort d'une tradition très riche et qui s'adresse
+                    à tous et à toutes.
+                </p>
+                <p>
+                    Notre club, via son professeur Michel Pierini, 6 ème dan,
+                    dispense un dans les Alpes Maritimes <a href="">enseignement traditionnel</a>
+                    du Karate qui vise à développer le potentiel de chacun.
+                </p>
+                <p>
+                    Maître Funakoshi (un des pères fondateur du karaté) disait que celui qui maîtrise vraiment
+                    le karaté est celui qui peut l'appliquer dans sa vie de tous les jours pour soi même et
+                    pour les autres.
+                </p>
+                <ul> 
+                    <li>
+                        <span class="comment">Les enfants</span> découvriront une discipline corporelle qui
+                        développe les qualités psycho motrices et acquièreront de façon certaine une confiance
+                        en soi.
+                    </li>
+                    <li>
+                        Les adolescents, par le challenge qu'impose une discipline exigante, verront leur volonté
+                        s'affirmer.
+                    </li>
+                    <li>
+                        Les jeunes filles et les femmes développeront une assurance et un esprit de combattante
+                        qui est toujours un atout.
+                    </li>
+                    <li>
+                        Les adultes en général pourront se passionner pour cet art qui conduit à une maîtrise
+                        et un dépassement de soi même.  
+                    </li>
+                </ul>
+                <div>
+                    A très bientôt en karategi, <br> Mario Gilardone, président du club. <br><br>
+                </div>
+            </section>
+        </div>
+        <aside class="home">
+            <section class="address">
+                <h3>{% trans "Adresse" %}</h3>
+                <p>Shotokan Karate Club</p>
+                <p>230 route des Dolines, Sophia Antipolis</p>
+                <p><em>{% trans "Juste après le garage Renault" %}</em></p>
+                <a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=230+route+des+Dolines+Sophia+Antipolis+France&sll=43.619044,7.035826&sspn=0.003118,0.003095&ie=UTF8&hq=&hnear=230+Route+des+Dolines,+06560+Valbonne,+Alpes-Maritimes,+Provence-Alpes-C%C3%B4te+d'Azur,+France&z=16" target="_blank">
+                    <img src="http://maps.google.com/maps/api/staticmap?center=230%20route%20des%20dolines%20Sophia%20Antipolis,%20France&zoom=15&size=290x290&markers=color:red|230%20route%20des%20dolines%20Sophia%20Antipolis,%20France&sensor=false" alt="Address" />
+                </a>
+            </section>
+            <section class="pricing">
+                <h3>{% trans "Tarifs" %}</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{% trans "Catégories" %}</th>
+                            <th>{% trans "License" %}</th>
+                            <th>{% trans "Trimestre" %}</th>
+                            <th>{% trans "Année" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="age">
+                                {% trans "Poussins" %}
+                                <span>{% trans "Nés entre 2001 et 2003" %}</span>
+                            </td>
+                            <td>63</td>
+                            <td>75</td>
+                            <td>225</td>
+                        </tr>
+                        <tr>
+                            <td class="age">
+                                {% trans "Pupilles" %}
+                                <span>{% trans "Nés entre 1999 et 2000" %}</span>
+                            </td>
+                            <td>63</td>
+                            <td>75</td>
+                            <td>225</td>
+                        </tr>
+                        <tr>
+                            <td class="age">
+                                {% trans "Benjamins" %}
+                                <span>{% trans "Nés entre 1997 et 1998" %}</span>
+                            </td>
+                            <td>63</td>
+                            <td>75</td>
+                            <td>225</td>
+                        </tr>
+                        <tr>
+                            <td class="age">
+                                {% trans "Minimes" %}
+                                <span>{% trans "Nés entre 1995 et 1996" %}</span>
+                            </td>
+                            <td>63</td>
+                            <td>75</td>
+                            <td>225</td>
+                        </tr>
+                        <tr>
+                            <td class="age">
+                                {% trans "Cadets" %}
+                                <span>{% trans "Nés entre 1993 et 1994" %}</span>
+                            </td>
+                            <td>63</td>
+                            <td>75</td>
+                            <td>225</td>
+                        </tr>
+                        <tr>
+                            <td class="age">
+                                {% trans "Juniors" %}
+                                <span>{% trans "Nés entre 1990 et 1992" %}</span>
+                            </td>
+                            <td>63</td>
+                            <td>75</td>
+                            <td>225</td>
+                        </tr>
+                        <tr>
+                            <td class="age">
+                                {% trans "Séniors" %}
+                                <span>{% trans "Nés avant 1989" %}</span>
+                            </td>
+                            <td>63</td>
+                            <td>88</td>
+                            <td>264</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="useful-links clearfix">
+                <h3>{% trans "Liens utiles" %}</h3>
+                <div class="link">
+                    <img src="{% thumbnail 'icons/portal/microsoft-office-word.png' 64 64 %}" />
+                    <p>
+                        <a href="{{ MEDIA_URL }}downloads/lettre-reprise.doc">
+                            {% trans "Reprise des cours" %}
+                        </a>
+                    </p>
+                </div>
+                <div class="link">
+                    <img src="{% thumbnail 'icons/portal/microsoft-office-word.png' 64 64 %}" />
+                    <p>
+                        <a href="{{ MEDIA_URL }}downloads/fiche-renseignements.doc">
+                            {% trans "Fiche de renseignements" %}
+                        </a>
+                    </p>
+                </div>
+                <div class="link">
+                    <img src="{% thumbnail 'icons/portal/microsoft-office-excel.png' 64 64 %}" />
+                    <p>
+                        <a href="{{ MEDIA_URL }}downloads/tarifs.xls">
+                            {% trans "Tarifs 2010-2011" %}
+                        </a>
+                    </p>
+                </div>
+            </section>
+        </aside>
+    </div>
+{% endblock %}

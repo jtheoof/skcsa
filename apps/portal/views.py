@@ -5,3 +5,6 @@ from django.template import RequestContext
 
 def home(request):
     return render_to_response('portal/home.html', context_instance=RequestContext(request))
+    
+def club(request):
+    return render_to_response('portal/club.html', context_instance=RequestContext(request))

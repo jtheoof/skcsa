@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load tags %}
 
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -18,10 +19,11 @@
         <![endif]-->
 	
 	    <!-- jquery necessary includes -->
-	    <link rel="stylesheet" href="/media/css/jquery/jquery-ui-1.8.4.custom.css" type="text/css" />
+	    <link rel="stylesheet" href="{{ MEDIA_URL }}/css/jquery/jquery-ui-1.8.4.custom.css" type="text/css" />
 	    
-	    <script type="text/javascript" src="/media/js/jquery/jquery-1.4.2.min.js"></script> 
-		<script type="text/javascript" src="/media/js/jquery/jquery-ui-1.8.4.custom.min.js"></script> 
+	    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery-1.4.2.min.js"></script> 
+		<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery-ui-1.8.4.custom.min.js"></script> 
+		<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery.qtip-1.0.0-rc3.js"></script>
 	
 	    {% block stylesheet %}{% endblock %}
 	    {% block javascript %}{% endblock %}
@@ -30,14 +32,21 @@
     <body id="index" class="home">
         {% block container %}
             {% block header %}
+                {% url portal_home as home_url %}
+                {% url portal_club as club_url %}
+                
                 <header id="banner" class="body">
                     <h1>
                         {% trans "Shotokan Karate Club, Sophia Antipolis" %}
                     </h1>
                     <nav>
                         <ul>
-                            <li class="active"><a href="#">{% trans "Accueil" %}</a></li>
-                            <li><a href="#">{% trans "Club" %}</a></li>
+                            <li class="{% selected request home_url %}">
+                                <a href="{{ home_url }}">{% trans "Accueil" %}</a>
+                            </li>
+                            <li class="{% selected request club_url %}">
+                                <a href="{{ club_url }}">{% trans "Club" %}</a>
+                            </li>
                             <li><a href="#">{% trans "News" %}</a></li>
                             <li><a href="#">{% trans "Evenements" %}</a></li>
                             <li><a href="#">{% trans "Multimedia" %}</a></li>
