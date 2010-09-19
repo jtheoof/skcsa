@@ -5,7 +5,28 @@ div.content {clear: both; float: left; width: 65%;}
 section.home {margin-bottom: 10px;}
 section.home p {text-align: justify;}
 
-section.photos {height: 400px;}
+section.photos {height: 460px;}
+
+#slider {height: 400px; margin: 0 auto; position: relative; overflow: hidden; width: 500px;}
+#sliderContent {margin-left: 0; position: absolute; top: 0; width: 500px;}
+.sliderImage {display: none; float: left; position: relative;}
+.sliderImage span {
+    background-color: #000;
+    bottom: 0;
+    color: #fff;
+    display: none;
+    font: 10px/15px Arial, Helvetica, sans-serif;
+    left: 0;
+    position: absolute;
+    padding: 10px 13px;
+    width: 474px;
+
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    -moz-opacity: 0.7;
+	-khtml-opacity: 0.7;
+}
+.sliderImage span strong {font-size: 14px;}
 
 aside.home {float: left; width: 30%;}
 aside.home section {
@@ -58,5 +79,12 @@ section.news ul li.widget-item img {float: left;}
 section.events #events {margin: 0;}
 
 /* Address */
-section.address p {margin: 10px auto; text-align: center;}
-section.address img  {display: block; margin: 0 auto;}
+section.address p {margin: 10px 0 5px 20px;}
+section.address a:hover, section.address a:active {
+    background-color: transparent;
+    text-decoration: none;
+    text-shadow: none;
+}
+section.address img {display: block; margin: 0 auto;}
+section.address img:hover {border: 3px solid #C74350;}
+
