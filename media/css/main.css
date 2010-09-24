@@ -38,6 +38,7 @@ h5 {font-size: 1.143em}	/* 16px */
 h6 {font-size: 1em}	/* 14px */
 
 h2, h3, h4, h5, h6 {font-weight: 400; line-height: 1.1; margin-bottom: .5em;}
+h4 em {margin-left: 4px;}
 
 /* Anchors */
 a {outline: 0;}
@@ -91,6 +92,7 @@ tfoot td {}
 /* Floats */
 .float-left {float: left;}
 .float-right {float: right;}
+.clear {clear: both;}
 
 /* HTML5 tags */
 header, section, footer,

@@ -13,11 +13,14 @@
         
         $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?id=54016158@N03&format=json&jsoncallback=?", function(data){
             $.each(data.items, function(i,item){
+                if (i == 1){
                 $("<img/>").attr("src", item.media.m.replace('_m', ''))
-                .appendTo("#sliderContent").wrap('<li class="sliderImage"></li>');
+                .appendTo("#sliderContent").wrap('<li class="sliderImage"></li>').wrap('<div class="wrap-to-center"></div>');
                 
-                $(".sliderImage:last").append('<span><strong>' + item.title + '</strong>');
+                $(".sliderImage:last").append('<span class="top"><strong>' + item.title + '</strong>');
+                }
             });
+            $("#sliderContent").append('<div class="clear sliderImage"></div>');
             $('#slider').s3Slider({ 
                 timeOut: 4000 
             });

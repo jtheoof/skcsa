@@ -5,11 +5,21 @@ div.content {clear: both; float: left; width: 65%;}
 section.home {margin-bottom: 10px;}
 section.home p {text-align: justify;}
 
-section.photos {height: 460px;}
+section.photos {height: 560px;}
 
-#slider {height: 400px; margin: 0 auto; position: relative; overflow: hidden; width: 500px;}
-#sliderContent {margin-left: 0; position: absolute; top: 0; width: 500px;}
-.sliderImage {display: none; float: left; position: relative;}
+#slider {height: 510px; margin: 0 auto; position: relative; overflow: hidden; width: 500px;}
+#sliderContent {height: 100%; margin: 0; padding: 0; width: 100%;}
+.sliderImage {background: #000; display: none; height: 100%; line-height: 0; position: relative; width: 100%;}
+.sliderImage .wrap-to-center {
+    display: table-cell;
+    height: 500px;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 500px;
+}
+.sliderImage .wrap-to-center * {vertical-align: middle;}
+.sliderImage img {padding: 0; margin: 0;}
 .sliderImage span {
     background-color: #000;
     bottom: 0;
@@ -26,6 +36,11 @@ section.photos {height: 460px;}
     -moz-opacity: 0.7;
 	-khtml-opacity: 0.7;
 }
+.sliderImage span.top {top: 0; left: 0; height: 40px;}
+.sliderImage span.bottom {bottom: 0; left: 0;}
+.sliderImage span.left {top: 0; left: 0; width: 110px !important; height: 100%;}
+.sliderImage span.right {right: 0; bottom: 0; width: 90px !important; height: 100%;}
+
 .sliderImage span strong {font-size: 14px;}
 
 aside.home {float: left; width: 30%;}
@@ -92,6 +107,10 @@ section.address img:hover {border: 3px solid #C74350;}
 section.useful-links .link {clear: both; margin: 0 5px;}
 section.useful-links .link img {float: left;}
 section.useful-links .link p {padding: 20px 0 0 70px;}
+
+/* Schedule */
+section.schedule h4 {margin-left: 9px;}
+section.schedule table {margin-left: 20px;}
 
 /* Pricing */
 section.pricing table td.age {color: #C74350; padding: 0 1px;}

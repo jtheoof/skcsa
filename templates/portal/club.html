@@ -159,23 +159,48 @@
         <aside class="home">
             <section class="schedule">
                 <h3>{% trans "Horaires" %}</h3>
-                <h4>{% trans "Enfants" %}<em>{% trans "nés entre 1994 et 2004" %}
+                <h4>{% trans "Enfants" %}<em>{% trans "(nés entre 1994 et 2004)" %}</em></h4>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>{% trans "Ceinture" %}</th>
-                            <th>{% trans "Lundi" %}</th>
-                            <th>{% trans "Jeudi" %}</th>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
-                            <td>
-                                {% trans "Nés après 1994" %}
-                                <!--span>{% trans "Nés entre 2001 et 2003" %}</span-->
-                            </td>
-                            <td>17h45 - 18h45</td>
-                            <td>17h30 - 18h30</td>
+                            <td>{% trans "Lundi" %}</td>
+                            <td>17h45</td>
+                            <td>18h45</td>
+                        </tr>
+                        <tr>
+                            <td>{% trans "Jeudi" %}</td>
+                            <td>17h45</td>
+                            <td>18h45</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>{% trans "Tous grades" %}</h4>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>{% trans "Lundi" %}</td>
+                            <td>19h00</td>
+                            <td>20h00</td>
+                        </tr>
+                        <tr>
+                            <td>{% trans "Jeudi" %}</td>
+                            <td>19h00</td>
+                            <td>20h00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>{% trans "Gradés" %}<em>{% trans "(bleues, marrons et noires)" %}</em></h4>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>{% trans "Lundi" %}</td>
+                            <td>20h00</td>
+                            <td>21h00</td>
+                        </tr>
+                        <tr>
+                            <td>{% trans "Jeudi" %}</td>
+                            <td>20h00</td>
+                            <td>21h00</td>
                         </tr>
                     </tbody>
                 </table>
