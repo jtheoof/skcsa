@@ -59,6 +59,12 @@
                     </div>
                 </div>
                 
+                {% for b in black_belts %}
+                <div>
+                    {{ b.first_name }} {{ b.last_name }} {{ b.dan }}
+                </div>
+                {% endfor %}
+                
                 <h3>{% trans "Bureau" %}</h3>
                 
                 <p>

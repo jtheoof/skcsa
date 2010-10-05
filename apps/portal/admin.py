@@ -16,4 +16,4 @@ def autoregister(*app_list):
             except AlreadyRegistered:
                 pass
 
-autoregister('events')
+autoregister('events', 'members')

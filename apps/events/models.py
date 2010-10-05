@@ -10,6 +10,9 @@ class Address(models.Model):
     latitude = models.FloatField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
     
+    class Meta:
+        verbose_name_plural = 'Addresses'
+    
     def __unicode__(self):
         ret = u''
         if self.name:
@@ -43,6 +46,6 @@ class Event(models.Model):
     
     def __unicode__(self):
         import datetime
-        return u'%s: ' % (date_begin.strftime('%Y'), title)
+        return u'%s %s' % (self.date_begin.strftime('%Y/%m/%d'), self.title)
    
     

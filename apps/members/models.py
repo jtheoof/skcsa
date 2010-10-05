@@ -1,4 +1,11 @@
 from django.db import models
+from django.template.defaultfilters import slugify
+
+def upload_black_belts(instance, filename):
+    import os
+    name, extension =  filename.rsplit('.')
+    path = os.path.join('photos', 'members', '%s.%s' % (slugify('%s %s' % (instance.first_name, instance.last_name)), extension))
+    return path
 
 class BlackBelt(models.Model):
     first_name = models.CharField(max_length=64)
@@ -7,17 +14,19 @@ class BlackBelt(models.Model):
     started_karate = models.DateField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     dan = models.PositiveSmallIntegerField()
-    avatar = ImageField(upload_to='photos/members/')
+    avatar = models.ImageField(upload_to=upload_black_belts, null=True, blank=True)
     
     def __unicode__(self):
-    
-    
-    
-    def slugify(self, string):
-        import re
-        removelist = ["a", "an", "as", "at", "before", "but", "by", "for","from","is", "in", "into", "like", "of", "off", "on", "onto","per","since", "than", "the", "this", "that", "to", "up", "via","with"];
-        for a in removelist:
-            aslug = re.sub(r'\b'+a+r'\b', '', string)
-        aslug = re.sub('[^\w\s-]', '', aslug).stringip().lower()
-        aslug = re.sub('\s+', '-', aslug)
-        return aslug
+        return u'%s %s' % (self.first_name, self.last_name)
+        
+    def save(self, *args, **kwargs):
+        try:
+            current = BlackBelt.objects.get(id=self.id)
+            # We might want to do something about this code because it generates
+            # RuntimeError: 'maximum recursion depth exceeded while calling a Python object'
+            # in <type 'exceptions.RuntimeError'> ignored
+            if current.avatar != self.avatar:
+                current.avatar.delete()
+        except: pass
+        return super(BlackBelt, self).save(*args, **kwargs)
+                

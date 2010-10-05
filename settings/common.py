@@ -117,5 +117,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     
     'apps.events',
+    'apps.members',
     'apps.portal',
 )
