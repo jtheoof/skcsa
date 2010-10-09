@@ -2,8 +2,12 @@
 {% load i18n %}
 {% load tags %}
 
+{% block title %}
+    {% trans "Shotokan Karate Club - Sophia Antipolis" %} | {% trans "Club" %}
+{% endblock %}
+
 {% block stylesheet %}
-    <link rel="stylesheet" href="/media/css/home.css" type="text/css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/home.css" type="text/css" />
 {% endblock %}
 
 {% block javascript %}
@@ -47,67 +51,72 @@
                 
                 <h3>{% trans "Professeurs" %}</h3>
                 
-                <div class="member">
-                    <img src="{{ MEDIA_URL }}/photos/members/michel-pierini.jpg" />
-                    <div class="info">
-                        <table>
-                            <tbody>
-                                <tr><td class="name">Michel Pierini</td></tr>
-                                <tr><td class="grade">6ème Dan</td></tr>
-                            </tbody>
-                        </table>
+                {% for professor in professors %}
+                    <div class="member clearfix">
+                        {% if professor.avatar %}
+                            <img src="{{ professor.avatar.url|thumbnail:'150x210' }}" />
+                        {% else %}
+                            <img src="{% thumbnail 'photos/members/default.png' 150 210 %}" />
+                        {% endif %}
+                        <h4>{{ professor.full_name }}</h4>
+                        <h5>{{ professor.dan }}
+                            {% if professor.dan > 1 %} {% trans "ème" %}
+                            {% else %} {% trans "ère" %} {% endif %}
+                            Dan
+                        </h5>
+                        <p class="desc">{{ professor.description }}</p>
                     </div>
-                </div>
-                
-                {% for b in black_belts %}
-                <div>
-                    {{ b.first_name }} {{ b.last_name }} {{ b.dan }}
-                </div>
                 {% endfor %}
                 
                 <h3>{% trans "Bureau" %}</h3>
-                
-                <p>
-                    La vocation de ce site est de vous informer sur <a href="">notre club</a> situé à Sophia Antipolis entre Antibes et Valbonne  dans le 06,  mais également de vous faire découvrir (ou redécouvrir)
-                    cet art martial extraordinaire (oui nous sommes passionnés :-) qu'est le Karaté.
-                </p>
-                <p>
-                    Comme vous le verrez  dans ces pages, le Karaté est un art aux multiples facettes
-                    (sport, éducation, self défense), fort d'une tradition très riche et qui s'adresse
-                    à tous et à toutes.
-                </p>
-                <p>
-                    Notre club, via son professeur Michel Pierini, 6 ème dan,
-                    dispense un dans les Alpes Maritimes <a href="">enseignement traditionnel</a>
-                    du Karate qui vise à développer le potentiel de chacun.
-                </p>
-                <p>
-                    Maître Funakoshi (un des pères fondateur du karaté) disait que celui qui maîtrise vraiment
-                    le karaté est celui qui peut l'appliquer dans sa vie de tous les jours pour soi même et
-                    pour les autres.
-                </p>
-                <ul> 
-                    <li>
-                        <span class="comment">Les enfants</span> découvriront une discipline corporelle qui
-                        développe les qualités psycho motrices et acquièreront de façon certaine une confiance
-                        en soi.
-                    </li>
-                    <li>
-                        Les adolescents, par le challenge qu'impose une discipline exigante, verront leur volonté
-                        s'affirmer.
-                    </li>
-                    <li>
-                        Les jeunes filles et les femmes développeront une assurance et un esprit de combattante
-                        qui est toujours un atout.
-                    </li>
-                    <li>
-                        Les adultes en général pourront se passionner pour cet art qui conduit à une maîtrise
-                        et un dépassement de soi même.  
-                    </li>
-                </ul>
-                <div>
-                    A très bientôt en karategi, <br> Mario Gilardone, président du club. <br><br>
+                <div class="member clearfix">
+                    {% if president.avatar %}
+                        <img src="{{ president.avatar.url|thumbnail:'150x210' }}" />
+                    {% else %}
+                        <img src="{% thumbnail 'photos/members/default.png' 150 210 %}" />
+                    {% endif %}
+                    <h4>{{ president.full_name }}</h4>
+                    <h5>{{ president.dan }}
+                        {% if president.dan > 1 %} {% trans "ème" %}
+                        {% else %} {% trans "ère" %} {% endif %}
+                        Dan
+                    </h5>
+                    <h5>{{ president.telephone }}</h5>
+                    <p class="desc">{{ president.description }}</p>
                 </div>
+                <div class="member clearfix">
+                    {% if accountant.avatar %}
+                        <img src="{{ accountant.avatar.url|thumbnail:'150x210' }}" />
+                    {% else %}
+                        <img src="{% thumbnail 'photos/members/default.png' 150 210 %}" />
+                    {% endif %}
+                    <h4>{{ accountant.full_name }}</h4>
+                    <h5>{{ accountant.dan }}
+                        {% if accountant.dan > 1 %} {% trans "ème" %}
+                        {% else %} {% trans "ère" %} {% endif %}
+                        Dan
+                    </h5>
+                    <h5>{{ accountant.telephone }}</h5>
+                    <p class="desc">{{ accountant.description }}</p>
+                </div>
+                <div class="member clearfix">
+                    {% if secretary.avatar %}
+                        <img src="{{ secretary.avatar.url|thumbnail:'150x210' }}" />
+                    {% else %}
+                        <img src="{% thumbnail 'photos/members/default.png' 150 210 %}" />
+                    {% endif %}
+                    <h4>{{ secretary.full_name }}</h4>
+                    <h5>{{ secretary.dan }}
+                        {% if secretary.dan > 1 %} {% trans "ème" %}
+                        {% else %} {% trans "ère" %} {% endif %}
+                        Dan
+                    </h5>
+                    <h5>{{ secretary.telephone }}</h5>
+                    <p class="desc">{{ secretary.description }}</p>
+                </div>
+                <p>
+                    {% trans "Un grand merci aux anciens présidents sans lesquels le club n'existerait pas : Michel Guillon, Willy Binst." %}
+                </p>
             </section>
             <section class="home important">
                 <h2>{% trans "Le coin des ceintures noires" %}</h2>
@@ -119,47 +128,6 @@
                 <h3>{% trans "2ème Dan" %}</h3>
                 <h3>{% trans "1ère Dan" %}</h3>
                 
-                <p>
-                    La vocation de ce site est de vous informer sur <a href="">notre club</a> situé à Sophia Antipolis entre Antibes et Valbonne  dans le 06,  mais également de vous faire découvrir (ou redécouvrir)
-                    cet art martial extraordinaire (oui nous sommes passionnés :-) qu'est le Karaté.
-                </p>
-                <p>
-                    Comme vous le verrez  dans ces pages, le Karaté est un art aux multiples facettes
-                    (sport, éducation, self défense), fort d'une tradition très riche et qui s'adresse
-                    à tous et à toutes.
-                </p>
-                <p>
-                    Notre club, via son professeur Michel Pierini, 6 ème dan,
-                    dispense un dans les Alpes Maritimes <a href="">enseignement traditionnel</a>
-                    du Karate qui vise à développer le potentiel de chacun.
-                </p>
-                <p>
-                    Maître Funakoshi (un des pères fondateur du karaté) disait que celui qui maîtrise vraiment
-                    le karaté est celui qui peut l'appliquer dans sa vie de tous les jours pour soi même et
-                    pour les autres.
-                </p>
-                <ul> 
-                    <li>
-                        <span class="comment">Les enfants</span> découvriront une discipline corporelle qui
-                        développe les qualités psycho motrices et acquièreront de façon certaine une confiance
-                        en soi.
-                    </li>
-                    <li>
-                        Les adolescents, par le challenge qu'impose une discipline exigante, verront leur volonté
-                        s'affirmer.
-                    </li>
-                    <li>
-                        Les jeunes filles et les femmes développeront une assurance et un esprit de combattante
-                        qui est toujours un atout.
-                    </li>
-                    <li>
-                        Les adultes en général pourront se passionner pour cet art qui conduit à une maîtrise
-                        et un dépassement de soi même.  
-                    </li>
-                </ul>
-                <div>
-                    A très bientôt en karategi, <br> Mario Gilardone, président du club. <br><br>
-                </div>
             </section>
         </div>
         <aside class="home">

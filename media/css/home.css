@@ -118,5 +118,9 @@ section.pricing table td.age:hover {cursor: pointer;}
 section.pricing table td {text-align: center;}
 section.pricing table td span {display: none;}
 
-
-
+/* Member */
+.member {background: #ddd; border: solid 1px #aaa; margin: 15px 0 15px 0;}
+.member img {float: left;}
+.member img:after {clear: left;}
+.member h4, .member h5, .member p {border: 1px solid #CCC; margin: 0 0 1em 160px; width: 150px;}
+.member p.desc {font-style: italic; margin-bottom: 0; width: 73%;}

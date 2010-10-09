@@ -29,4 +29,7 @@ class BlackBelt(models.Model):
                 current.avatar.delete()
         except: pass
         return super(BlackBelt, self).save(*args, **kwargs)
-                
+        
+    def _get_full_name(self):
+        return '%s %s' % (self.first_name, self.last_name)
+    full_name = property(_get_full_name)

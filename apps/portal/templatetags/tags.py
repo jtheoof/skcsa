@@ -1,4 +1,5 @@
 import os
+import re
 import Image
 
 from django import template
@@ -15,16 +16,28 @@ def selected(request, pattern):
     return ''
 
 @register.filter
-def thumbnail(file, size):
+def thumbnail(url, size):
     width, height = size.split('x')
     width = int(width)
     height = int(height)
-    basename, format = file.rsplit('.', 1)
+    base_url, base_filename = url.rsplit('/', 1)
+    basename, format = base_filename.rsplit('.', 1)
+    print base_url, base_filename
+    print basename, format
+    print url
+    # ex: thumb-michel-pierini-150x210.jpg
     thumb = 'thumb-' + basename + '-' + size + '.' + format
-    thumb_filename = os.path.join(settings.MEDIA_ROOT, thumb)
-    thumb_url = os.path.join(settings.MEDIA_URL, thumb)
-
-    filename = os.path.join(settings.MEDIA_ROOT, file)
+    
+    # Removing original '/media/', replacing '/' with os separators
+    temp = re.sub(r'^%s(.*)' % settings.MEDIA_URL, r'\1', base_url)
+    path = temp.replace('/', os.sep)
+    print temp, path
+    full_path = os.path.join(settings.MEDIA_ROOT, path)
+    print full_path
+    filename = os.path.join(full_path, base_filename)
+    thumb_filename = os.path.join(full_path, thumb)
+    thumb_url = '%s/%s' % (base_url, thumb)
+    
     if os.path.exists(thumb_filename):
         if os.path.getmtime(thumb_filename) < os.path.getmtime(filename):
             create_new = True
@@ -33,6 +46,9 @@ def thumbnail(file, size):
             create_new = False
     else:
         create_new = True
+    
+    print thumb_filename
+    print thumb_url
     
     if create_new:
         image = Image.open(filename)
